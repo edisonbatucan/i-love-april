@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hi April! 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .big-flower {
+      font-size: 20vw;
+      color: #ff69b4;
+      animation: big-flower-float 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes big-flower-float {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .petals {
+      font-size: 5vw;
+      color: #ff69b4;
+      position: absolute;
+      animation: petal-float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes petal-float {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-10px) translateX(10px);
+      }
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+    }
+
+    /* Circular button styles */
+    .circular-button {
+      position: fixed;
+      bottom: 5vw;
+      right: 5vw;
+      width: 10vw;
+      height: 10vw;
+      font-size: 4vw;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
+    }
+
+    /* Note Wrapper */
+    .note-wrapper {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw;
+      max-width: 400px;
+      background-color: #fff;
+      border-radius: 2vw;
+      padding: 5vw;
+      box-shadow: 0 0 2vw rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 999;
+    }
+
+    .note-content {
+      font-size: 4vw;
+      color: #333;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 2vw;
+      right: 2vw;
+      font-size: 4vw;
+      cursor: pointer;
+    }
+
+    @keyframes fireworks {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .firework {
+      position: fixed;
+      font-size: 8vw; /* Responsive font size */
+      color: #ff69b4;
+      animation: fireworks 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="big-flower">🌸</div>
+  <div class="petals" style="top: 10%; left: 25%;">🌸</div>
+  <div class="petals" style="top: 15%; left: 45%;">🌸</div>
+  <div class="petals" style="top: 20%; left: 65%;">🌸</div>
+  <div class="petals" style="top: 25%; left: 35%;">🌸</div>
+  <div class="petals" style="top: 30%; left: 55%;">🌸</div>
+  <div class="petals" style="top: 35%; left: 25%;">🌸</div>
+  <div class="petals" style="top: 40%; left: 45%;">🌸</div>
+  <div class="petals" style="top: 45%; left: 65%;">🌸</div>
+  <div class="petals" style="top: 50%; left: 35%;">🌸</div>
+  <div class="petals" style="top: 55%; left: 55%;">🌸</div>
+  <div class="petals" style="top: 60%; left: 25%;">🌸</div>
+  <div class="petals" style="top: 65%; left: 45%;">🌸</div>
+  <div class="petals" style="top: 70%; left: 65%;">🌸</div>
+  <div class="petals" style="top: 75%; left: 35%;">🌸</div>
+  <div class="petals" style="top: 80%; left: 55%;">🌸</div>
+</div>
+
+<!-- Circular button to display the note -->
+<div class="circular-button note">📝</div>
+
+<!-- Note Wrapper -->
+<div class="note-wrapper" id="noteWrapper">
+    <span class="close-button" id="closeButton">✕</span>
+    <div class="note-content" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <h1 style="font-size: 2.5rem;">Happy National Flower's Day!</h1>
+      <div style="background-color: #f2f2f2; border-radius: 10px; padding: 15px; margin-bottom: 1.5rem;">
+        <p style="font-style: italic; margin: 0;">"Flowers are a proud assertion that a ray of beauty outvalues all the utilities in the world."</p>
+      </div>
+      <p style="font-size: 1.1rem;">
+        This quote is something that I have found, I just want you to know love that you are that flower that gives me a ray of beauty into my life, and your presence fills my days with happiness and joy. Thank you for being the wonderful person you are!
+      </p>
+      <p style="font-size: 1rem; text-align: right; margin-top: 1rem;">- Dondon</p>
+    </div>
+</div>
+  
+  
+
+  
+
+<script>
+  const noteWrapper = document.getElementById('noteWrapper');
+  const closeButton = document.getElementById('closeButton');
+
+  function toggleNote() {
+    noteWrapper.style.display = noteWrapper.style.display === 'none' ? 'block' : 'none';
+  }
+
+  document.querySelector('.note').addEventListener('click', function() {
+    if (noteWrapper.style.display === 'none') {
+        displayFireworks(); // Display fireworks only if note is hidden
+    }
+    toggleNote();
+  });
+
+  closeButton.addEventListener('click', function() {
+    toggleNote();
+  });
+
+  function displayFireworks() {
+    const largeFirework = document.createElement('div');
+    largeFirework.classList.add('firework');
+    largeFirework.style.top = '50%';
+    largeFirework.style.left = '50%';
+    largeFirework.innerHTML = '🎆';
+    document.body.appendChild(largeFirework);
+
+    const numFireworks = Math.floor(Math.random() * 16) + 10;
+    for (let i = 0; i < numFireworks; i++) {
+      const smallFirework = document.createElement('div');
+      smallFirework.classList.add('firework');
+      smallFirework.style.top = `${Math.random() * 100}vh`;
+      smallFirework.style.left = `${Math.random() * 100}vw`;
+      smallFirework.innerHTML = '🎆';
+      document.body.appendChild(smallFirework);
+    }
+
+    setTimeout(function() {
+      largeFirework.remove();
+      document.querySelectorAll('.firework').forEach(firework => firework.remove());
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
